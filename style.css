@@ -1,0 +1,287 @@
+body {
+  max-width: 100vw;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: Arial, Verdana, sans-serif;
+}
+
+.containers {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.game-timer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 28vh;
+}
+
+main {
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+.caption {
+  color: #000080;
+  font-size: 2em;
+  font-weight: bolder;
+  text-align: center;
+  transition: color 500ms ease-in;
+}
+
+#yellow .dumpster-text {
+  background-color: #ffad00;
+}
+
+#green .dumpster-text {
+  background-color: #6ec100;
+}
+
+#blue .dumpster-text {
+  background-color: #0060f2;
+}
+
+#red .dumpster-text {
+  background-color: red;
+}
+
+.dumpster-text {
+  border-radius: 40px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 100%;
+  text-align: center;
+}
+
+.counter {
+  opacity: 0;
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+  transition: all 350ms ease-in;
+}
+
+.counter.active {
+  opacity: 1;
+}
+
+.win span,
+.lose span,
+.again span {
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.win,
+.lose,
+.again {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 40px;
+  padding: 10px;
+  text-align: center;
+  height: 30px;
+}
+
+.win,
+.lose {
+  width: 80px;
+}
+
+.dumpster-garbage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.timer-svg {
+  width: 350px;
+  object-fit: contain;
+}
+
+.cub-svg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  opacity: 0;
+  z-index: 4;
+  width: 200px;
+}
+
+.trash_picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  background: #c3deee;
+  z-index: 3;
+  opacity: 0.3;
+  transform: scale(1);
+}
+
+.trash_picture.active {
+  opacity: 1;
+  transform: scale(1.3);
+  transition: all 350ms ease-in;
+}
+
+.trash_picture img {
+  width: 145px;
+  z-index: 3;
+  opacity: 0;
+  transform: scale(1);
+  transition: all 350ms ease-in;
+  /* animation-delay: 2s; */
+}
+
+.trash_picture img.active {
+  opacity: 1;
+  transform: scale(1.2);
+  /* animation-delay: 2s; */
+  /* transition: all 350ms ease-in; */
+}
+
+.circles {
+  display: flex;
+}
+
+.green_circles,
+.red_circles {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  opacity: 0.1;
+}
+
+.win {
+  background-color: #a7d161;
+}
+
+.lose {
+  background-color: #e5017c;
+}
+
+.game_over {
+  z-index: 1;
+  position: absolute;
+}
+
+.dumpster {
+  width: 23%;
+  position: sticky;
+  cursor: pointer;
+}
+
+.dumpster-cap {
+  width: 80%;
+  object-fit: contain;
+  position: absolute;
+  left: 17px;
+  top: 59px;
+  z-index: -1;
+  transition: top 450ms ease-in;
+}
+
+.dumpster:hover .wasteboxs .dumpster-cap {
+  top: -13px;
+}
+.dumpster.zumba .wasteboxs .dumpster-cap {
+  top: -13px;
+}
+
+.start {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.button_begin {
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  background-color: #ac64e4;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  border-color: #ac64e4;
+  border: 5px;
+}
+
+.button_begin:hover {
+  cursor: pointer;
+  outline: none;
+}
+
+.button_begin.active {
+  display: none;
+}
+
+.dumpster-text--green.down {
+  bottom: 50px;
+  color: #e5017c;
+}
+
+.again {
+  background-color: #d3a8f0;
+  cursor: pointer;
+  display: none;
+}
+
+.button_again {
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  outline: none;
+  border: none;
+  background-color: #d3a8f0;
+}
+
+.button_again:hover {
+  cursor: pointer;
+}
+
+.again.active {
+  display: flex;
+  cursor: pointer;
+  z-index: 6;
+}
+
+.trash_picture.end {
+  opacity: 0;
+}
+
+.cub-svg.active {
+  opacity: 0;
+}
+
+.counter.end {
+  opacity: 1;
+  display: flex;
+  width: 500px;
+  transition: all 350ms ease-in;
+  position: absolute;
+  top: 175px;
+  justify-content: center;
+}
+
+/*
+.caption.zumba {
+  color: #e5017c;
+} */

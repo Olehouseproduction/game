@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h2 onclick="openBox ()" class="caption">
+        Выбери правильный бак<br />для сортировки мусора
+      </h2>
+    </header>
+    <main>
+      <section class="game-timer">
+        <div class="start">
+          <button onclick="startGame()" class="button_begin">Начать!</button>
+        </div>
+        <div class="cub-svg">
+          <svg viewBox="-40 -40 250.79 250.79" class="timer-svg">
+            <g id="Layer_2" data-name="Layer 2">
+              <g id="Layer_1-2" data-name="Layer 1">
+                <circle
+                  class="cls-1 js-preload-circle"
+                  cx="85.89"
+                  cy="85.89"
+                  r="84.89"
+                  style="stroke-dashoffset: 600" />
+                <circle
+                  class="cls-1"
+                  cx="85.89"
+                  cy="85.89"
+                  r="84.89"
+                  stroke-opacity="0.55" />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <div class="trash_picture">
+          <!-- <img
+              class="core"
+              src="image/garbage/apple.png"
+              alt="apple_core"/> -->
+        </div>
+        <div class="counter">
+          <div class="win">
+            <img src="image/ok.png" alt="check_mark" />
+            <span class="win-js">0</span>
+          </div>
+          <div class="lose">
+            <img src="image/no.png" alt="cross_mark" />
+            <span class="lose-js">0</span>
+          </div>
+        </div>
+
+        <div class="again">
+          <img src="image/reload.png" alt="arrow_clockwise" />
+          <button onclick="startGame()" class="button_again">Ещё раз</button>
+        </div>
+      </section>
+      <section class="game-click">
+        <div class="containers">
+          <div
+            id="yellow"
+            class="dumpster"
+            data-type="recyclables"
+            onclick="clickBug('recyclables')">
+            <p class="dumpster-text dumpster-text--yellow">Вторсырье</p>
+            <div class="wasteboxs">
+              <img
+                class="dumpster-garbage"
+                src="image/buck_top/wastebox_yellow.png"
+                alt="wastebox_yellow" />
+              <img
+                class="dumpster-cap"
+                src="image/buck_top/wastetop_yellow.png"
+                alt="wastetop_yellow" />
+            </div>
+          </div>
+          <div
+            id="green"
+            class="dumpster"
+            data-type="mixed"
+            onclick="clickBug('mixed')">
+            <p class="dumpster-text dumpster-text--green">Смешанные</p>
+            <div class="wasteboxs">
+              <img
+                class="dumpster-garbage"
+                src="image/buck_top/wastebox_green.png"
+                alt="wastebox_green" />
+              <img
+                class="dumpster-cap"
+                src="image/buck_top/wastetop_green.png"
+                alt="wastetop_green" />
+            </div>
+          </div>
+          <div
+            id="blue"
+            class="dumpster"
+            data-type="household"
+            onclick="clickBug('household')">
+            <p class="dumpster-text dumpster-text--blue">Бытовые</p>
+            <div class="wasteboxs">
+              <img
+                class="dumpster-garbage"
+                src="image/buck_top/wastebox_blue.png"
+                alt="wastebox_blue" />
+              <img
+                class="dumpster-cap"
+                src="image/buck_top/wastetop_blue.png"
+                alt="wastetop_blue" />
+            </div>
+          </div>
+          <div
+            id="red"
+            class="dumpster"
+            data-type="dangerous"
+            onclick="clickBug('dangerous')">
+            <p class="dumpster-text dumpster-text--red">Опасные</p>
+            <div class="wasteboxs">
+              <img
+                class="dumpster-garbage"
+                src="image/buck_top/wastebox_red.png"
+                alt="wastebox_red" />
+              <img
+                class="dumpster-cap"
+                src="image/buck_top/wastetop_red.png"
+                alt="wastetop_red" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
