@@ -28,38 +28,55 @@ let trashList;
 // console.log(rand, 'рандомный элемент из массива')
 
 let elemImg = document.createElement("img"); // Создаем переменную elemImg, формата img
-// console.log(elemImg, 'созданый элемент')
-elemImg.classList.add("active"); // Добавляем к переменной elemImg класс core (поменяла на active)
+console.log(elemImg, "созданый элемент");
+elemImg.classList.add("active");
 
-// создаем функцию startGame()
+// создаем функцию startGame
 function startGame() {
+  console.log("Игра началась");
+  upPoint.innerHTML = 0; //Обнуление счетчиков
+  downPoint.innerHTML = 0;
+  console.log("Обнулились счетчики");
+  headline.innerHTML = "Выбери правильный бак<br />для сортировки мусора"; //Поменялся заголовок
+  elemImg.classList.add("active");
+  start.classList.remove("active");
+  if (trash != undefined) {
+    // Если trash не underfined, т.е.если он существует в DOM
+    trash.classList.add("active"); // Почему classList здесь не подсвечен? также в функции setTimeOut
+  }
+  trashBox.classList.add("active");
+  trashPicture.classList.remove("end");
+  cub.classList.remove("active");
+  counters.classList.remove("end");
+  again.classList.remove("active");
+
   trashList = trashListRefresh.slice(0); //Склонировали массив
 
   let rand = Math.floor(Math.random() * trashList.length);
   //создаем переменную rand, в которой рандомно будут меняться картинки мусора [округляем значение (математический рандом умножаем на длину списка)]
-
   // "src","/images/"+rubArr[localGame.rand].url
   elemImg.setAttribute("src", trashList[rand].url);
   // В переменную elemImg (формата img с классом core) мы добавляем аттрибуты src и рандомную картинку из trashList с ключом url.
   elemImg.setAttribute("data-type", trashList[rand].type); // Туда же добавляем аттрибут data-type и рандомный ключ type из trashList. [Мы выбираем рандомный объект и передаем его значение]
-  console.log(elemImg, "полученый элемент"); // Выводим полученный элемент
+  console.log(elemImg, "полученный элемент"); // Выводим полученный элемент
   // picture.innerHTML = "<img class='core' src='image/garbage/apple.png' alt='apple_core;'>"
 
   trashPicture.appendChild(elemImg); //Переменную elemImg встраиваем в DOM (делаем дочкой picture(в которой лежит картинка мусора))
 
   trashList.splice(rand, 1); // удаляем 1 элемент, который был выбран.
   trash = document.querySelector(".trash_picture img"); // В переменную trash помещаем картинку мусора
-  start.classList.add("active"); // к переменной start (.button_begin) добавляем класс starting
-  counters.classList.add("active"); //к переменной counters добавляем класс come
-  // console.log(elemImg, "елемент до time")
+  start.classList.add("active"); // переменной start (.button_begin) навешиваем класс "active"
+  counters.classList.add("active");
+  // console.log(elemImg, "элемент до time");
 
   setTimeout(() => {
     // Используем метод setTimeout, позволяющий запускать функцию через заданный интервал времени
-    trash.classList.add("active"); // переменной trash (где лежит картинка мусора) добавляем класс emergence
-    trashBox.classList.add("active"); //переменной trashBox добавляем класс open
-    // console.log(elemImg, "елемент после time")
-  }, 100); // задержка появления первой картинки
+    trash.classList.add("active"); // переменной trash (где лежит картинка мусора) добавляем класс "active"
+    trashBox.classList.add("active");
+    // console.log(elemImg, "элемент после time");
+  }, 100);
 }
+console.log("Картинка появилась с задержкой"); //Не отобржается в консоли
 
 let upPoint = document.querySelector(".win-js"); // Создаем переменную - число правильных ответов
 let downPoint = document.querySelector(".lose-js"); // Создаем переменную - число неправильных ответов
@@ -69,27 +86,37 @@ let k = 0; // Создаем переменную k и присваиваем е
 
 function clickBug(type) {
   key = trash.getAttribute("data-type");
-  if (type === key) {
+  if (type === key && trashList.length > 0) {
     i++;
     upPoint.innerHTML = i;
-  } else {
+    responseYes();
+    console.log("цвет поменялся на зеленый?");
+    console.log("игрок кликнул на правильный бак");
+  }
+
+  if (type != key && trashList.length > 0) {
     k++;
+    responseNo();
     downPoint.innerHTML = k;
+    console.log("цвет поменялся на розовый?");
+    console.log("игрок кликнул на неправильный бак");
+  }
+
+  console.log("+балл");
+  if (trashList.length === 0) {
+    gameOver();
+    console.log("игра закончилась");
   }
   gameLoop();
+  // console.log("игра продолжается");
 }
-
-// function clickBug(type) {
-//   if (trashList.length >=0) break;
-
-// }
 
 function gameLoop() {
   if (trashList.length >= 1) {
     let rand = Math.floor(Math.random() * trashList.length);
     elemImg.setAttribute("src", trashList[rand].url); // В переменную elemImg (формата img с классом core) мы добавляем аттрибуты src и рандомную картинку из trashList с ключом url. Зачем мы добавляем src картинки, если ее нет в HTML
     elemImg.setAttribute("data-type", trashList[rand].type); // Туда же добавляем аттрибут data-type и рандомный ключ type из trashList
-    console.log(elemImg, "полученый элемент"); // Выводим полученный элемент
+    console.log(elemImg, "полученный элемент"); // Выводим полученный элемент
     trashPicture.appendChild(elemImg);
     trashList.splice(rand, 1);
 
@@ -99,14 +126,12 @@ function gameLoop() {
     //   trashList.length,
     //   "пока все хорошо"
     // );
-  } else {
-    game_over();
   }
 }
 
-function game_over() {
+function gameOver() {
   headline.innerHTML =
-    "Отлично!<br />Количество набранных очков: " +
+    "Отлично!<br/>Количество набранных очков: " +
     i +
     " из " +
     trashListRefresh.length +
@@ -120,22 +145,19 @@ function game_over() {
   cub.classList.add("active");
   counters.classList.add("end");
   again.classList.add("active");
-
-  // Пытаюсь остановить работу функции
-
-  // function clickBug() {
-  //   key.removeEventListener("click", clickBug);
-  // }
-  // function clickBug() {
-  //   return;
-  // }
-
-  // let f1 = function clickBug() {
-  //   return;
-  // };
-
-  // changes();
 }
+
+function responseYes() {
+  trashPicture.classList.add("backgroundYes");
+  trashPicture.classList.remove("backgroundNo");
+}
+
+function responseNo() {
+  trashPicture.classList.add("backgroundNo");
+  trashPicture.classList.remove("backgroundYes");
+}
+
+// changes();
 
 //Cоздаем одну функцию, которая будет отвечать за навешивание/снятие классов
 
@@ -299,7 +321,6 @@ yellow.classList.toggle("a1a");*/
 //         console.log(i)
 //         document.querySelector(".button").style.transform = "translateX(" + i + "px)"
 //     }
-
 // }
 
 // dumpster.classList.toggle(".active")
@@ -320,10 +341,19 @@ yellow.classList.toggle("a1a");*/
 //   {name: 'Олеся'}
 // ]
 
-// let test = {       объект хранит в себе данные КЛЮЧ: ЗАЧЕНИЕ
+// let test = {       объект хранит в себе данные КЛЮЧ: ЗНАЧЕНИЕ
 //   name: 'Олеся',
 //   car: 'BMW',
 //   password: "80000"
 // }
 // console.log(trashList,"наш масив")
 // console.log(test,"наш объект")
+
+/*Задания 
+
+ 1 Подумать, как оптимизировать функцию gameOver с пом.функции changes
+ 2* Оптимизировать код игры (Что можно сделать, чтобы сократить количество кода)
+ 3** Добавить вайба (анимации, интерактивности). Напр., плавность появления элементов.
+ Создать для этого отдельную функцию gameAnim
+
+ */

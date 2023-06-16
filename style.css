@@ -88,6 +88,7 @@ main {
   padding: 10px;
   text-align: center;
   height: 30px;
+  transition: all 350ms ease-in;
 }
 
 .win,
@@ -128,6 +129,8 @@ main {
   z-index: 3;
   opacity: 0.3;
   transform: scale(1);
+  transition: all 350ms ease-in;
+  /*animation-delay: 2s; */
 }
 
 .trash_picture.active {
@@ -148,8 +151,8 @@ main {
 .trash_picture img.active {
   opacity: 1;
   transform: scale(1.2);
-  /* animation-delay: 2s; */
-  /* transition: all 350ms ease-in; */
+  /* animation-delay: 2s;*/
+  /*transition: all 350ms ease-in; */
 }
 
 .circles {
@@ -251,16 +254,14 @@ main {
   outline: none;
   border: none;
   background-color: #d3a8f0;
-}
-
-.button_again:hover {
+  transition: all 350ms ease-in;
   cursor: pointer;
 }
 
 .again.active {
   display: flex;
-  cursor: pointer;
   z-index: 6;
+  transition: all 350ms ease-in;
 }
 
 .trash_picture.end {
@@ -281,7 +282,10 @@ main {
   justify-content: center;
 }
 
-/*
-.caption.zumba {
-  color: #e5017c;
-} */
+.trash_picture.backgroundYes {
+  background: #a7d161;
+}
+
+.trash_picture.backgroundNo {
+  background: #e5017c;
+}
