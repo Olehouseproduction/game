@@ -37,7 +37,7 @@ function startGame() {
   upPoint.innerHTML = 0; //Обнуление счетчиков
   downPoint.innerHTML = 0;
   console.log("Обнулились счетчики");
-  headline.innerHTML = "Выбери правильный бак<br />для сортировки мусора"; //Поменялся заголовок
+  headline.innerHTML = "Выбери правильный бак для сортировки мусора"; //Поменялся заголовок
   elemImg.classList.add("active");
   start.classList.remove("active");
   if (trash != undefined) {
@@ -56,7 +56,7 @@ function startGame() {
   //создаем переменную rand, в которой рандомно будут меняться картинки мусора [округляем значение (математический рандом умножаем на длину списка)]
   // "src","/images/"+rubArr[localGame.rand].url
   elemImg.setAttribute("src", trashList[rand].url);
-  // В переменную elemImg (формата img с классом core) мы добавляем аттрибуты src и рандомную картинку из trashList с ключом url.
+  // В переменную elemImg добавляем аттрибуты src и рандомную картинку из trashList с ключом url.
   elemImg.setAttribute("data-type", trashList[rand].type); // Туда же добавляем аттрибут data-type и рандомный ключ type из trashList. [Мы выбираем рандомный объект и передаем его значение]
   console.log(elemImg, "полученный элемент"); // Выводим полученный элемент
   // picture.innerHTML = "<img class='core' src='image/garbage/apple.png' alt='apple_core;'>"
