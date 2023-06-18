@@ -6,6 +6,7 @@ body {
 
   background: url("/image/recycling-concept-top-view.jpg") 0 0/100% auto
     no-repeat;
+  overflow: hidden;
 }
 
 .containers {
@@ -27,12 +28,12 @@ main {
 }
 
 .caption {
-  text-shadow: 4px 3px 2px #ccc;
   font-size: 2em;
 
   font-weight: bolder;
   text-align: center;
   transition: color 500ms ease-in;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
 }
 
 #yellow .dumpster-text {
@@ -52,12 +53,19 @@ main {
 }
 
 .dumpster-text {
+  /* display: flex;
+  justify-content: center; */
   border-radius: 40px;
   padding: 10px;
   color: white;
   font-weight: bold;
   font-size: 100%;
+  letter-spacing: 0.2px;
   text-align: center;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 3vh;
+  margin-left: 36px;
+  width: max-content;
 }
 
 .counter {
@@ -93,6 +101,8 @@ main {
   text-align: center;
   height: 30px;
   transition: all 350ms ease-in;
+  box-shadow: 0 5px 0 #5d593a;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
 }
 
 .win,
@@ -195,20 +205,17 @@ main {
 }
 
 .dumpster-cap {
-  width: 80%;
+  width: 76%;
   object-fit: contain;
   position: absolute;
-  left: 17px;
-  top: 59px;
+  left: 1.1vw;
+  top: 7vh;
   z-index: -1;
   transition: top 450ms ease-in;
 }
 
 .dumpster:hover .wasteboxs .dumpster-cap {
-  top: -13px;
-}
-.dumpster.zumba .wasteboxs .dumpster-cap {
-  top: -13px;
+  top: -0.5vh;
 }
 
 .start {
@@ -219,8 +226,9 @@ main {
   z-index: 5;
 }
 
-.button_begin {
+/* .button_begin {
   color: white;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
   font-weight: bold;
   font-size: 2rem;
   background-color: #ac64e4;
@@ -229,11 +237,37 @@ main {
   border-radius: 100px;
   border-color: #ac64e4;
   border: 5px;
-}
+} */
 
-.button_begin:hover {
+.button_begin {
+  color: white;
   cursor: pointer;
-  outline: none;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+  font-size: 2rem;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  padding: 12px 40px;
+  margin: 10px 20px;
+  border-radius: 100px;
+  border: 5px;
+  background-image: linear-gradient(
+    45deg,
+    #e6a8d7 0%,
+    #cd00cd 50%,
+    #660066 100%
+  );
+  background-position: 100% 0;
+  background-size: 200% 200%;
+
+  box-shadow: 0 16px 32px 0 rgba(0, 40, 120, 0.35);
+  transition: 0.5s;
+}
+.button_begin:hover {
+  box-shadow: 0 0 0 0 rgba(0, 40, 120, 0);
+  background-position: 0 0;
+  outline: solid 5px;
 }
 
 .button_begin.active {
@@ -260,12 +294,16 @@ main {
   background-color: #d3a8f0;
   transition: all 350ms ease-in;
   cursor: pointer;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
 }
 
 .again.active {
   display: flex;
   z-index: 6;
   transition: all 350ms ease-in;
+  margin-top: 19px;
+  height: 35px;
+  width: 190px;
 }
 
 .trash_picture.end {
@@ -282,7 +320,8 @@ main {
   width: 500px;
   transition: all 350ms ease-in;
   position: absolute;
-  top: 175px;
+  top: 370px;
+  gap: 10px;
   justify-content: center;
 }
 
