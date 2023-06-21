@@ -131,11 +131,7 @@ function gameLoop() {
 
 function gameOver() {
   headline.innerHTML =
-    "Отлично!<br/>Количество набранных очков: " +
-    i +
-    " из " +
-    trashListRefresh.length +
-    "!";
+    "Отлично!<br/>Количество набранных очков: " + i + " из " + trashListRefresh.length + "!";
 
   elemImg.classList.remove("active");
   start.classList.add("active");
@@ -157,9 +153,16 @@ function responseNo() {
   trashPicture.classList.remove("backgroundYes");
 }
 
-// changes();
+// function gameAnim() { //Для анимаций
+//   trashPicture.classList.toggle ("backgroundYes");
+//   trashPicture.classList.toggle("backgroundNo");
 
-//Cоздаем одну функцию, которая будет отвечать за навешивание/снятие классов
+// }
+
+function changes() { //Функцию, которая отвечает за навешивание/снятие классов
+
+}
+
 
 // function changes() {
 //   start.classList.add("active");
@@ -169,7 +172,7 @@ function responseNo() {
 //   again.classList.toggle("active");
 // }
 
-// break.function clickBug(type);
+
 
 // startGame(); // обновляет цикл (бесконечная игра)
 // console.log(
@@ -179,7 +182,6 @@ function responseNo() {
 //   "должен быть 0 - и я молодец"
 // );
 
-//Cоздаем функцию конца игры
 
 // Создаем функцию клика по баку. Подаем в нее агрумент (type) - данные, которые нужны для работы функции
 

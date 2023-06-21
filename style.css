@@ -226,19 +226,6 @@ main {
   z-index: 5;
 }
 
-/* .button_begin {
-  color: white;
-  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
-  font-weight: bold;
-  font-size: 2rem;
-  background-color: #ac64e4;
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
-  border-color: #ac64e4;
-  border: 5px;
-} */
-
 .button_begin {
   color: white;
   cursor: pointer;
