@@ -34,6 +34,8 @@ elemImg.classList.add("active");
 // создаем функцию startGame
 function startGame() {
   console.log("Игра началась");
+  i = 0;
+  k = 0;
   upPoint.innerHTML = 0; //Обнуление счетчиков
   downPoint.innerHTML = 0;
   console.log("Обнулились счетчики");
@@ -89,14 +91,14 @@ function clickBug(type) {
   if (type === key && trashList.length > 0) {
     i++;
     upPoint.innerHTML = i;
-    responseYes();
+    gameAnim(true)
     console.log("цвет поменялся на зеленый?");
     console.log("игрок кликнул на правильный бак");
   }
 
   if (type != key && trashList.length > 0) {
     k++;
-    responseNo();
+    gameAnim(false)
     downPoint.innerHTML = k;
     console.log("цвет поменялся на розовый?");
     console.log("игрок кликнул на неправильный бак");
@@ -143,21 +145,15 @@ function gameOver() {
   again.classList.add("active");
 }
 
-function responseYes() {
-  trashPicture.classList.add("backgroundYes");
-  trashPicture.classList.remove("backgroundNo");
+function gameAnim(boolean) { //Для анимаций
+  if(boolean){
+    trashPicture.classList.add("backgroundYes");
+    trashPicture.classList.remove("backgroundNo");
+  }else{
+    trashPicture.classList.add("backgroundNo");
+    trashPicture.classList.remove("backgroundYes");
+  }
 }
-
-function responseNo() {
-  trashPicture.classList.add("backgroundNo");
-  trashPicture.classList.remove("backgroundYes");
-}
-
-// function gameAnim() { //Для анимаций
-//   trashPicture.classList.toggle ("backgroundYes");
-//   trashPicture.classList.toggle("backgroundNo");
-
-// }
 
 function changes() { //Функцию, которая отвечает за навешивание/снятие классов
 
@@ -353,9 +349,9 @@ yellow.classList.toggle("a1a");*/
 
 /*Задания 
 
- 1 Подумать, как оптимизировать функцию gameOver с пом.функции changes
- 2* Оптимизировать код игры (Что можно сделать, чтобы сократить количество кода)
- 3** Добавить вайба (анимации, интерактивности). Напр., плавности появления элементов.
+ 1* Подумать, как оптимизировать функцию gameOver с пом.функции changes
+ 2** Оптимизировать код игры (Что можно сделать, чтобы сократить количество кода)
+ 3 Добавить вайба (анимации, интерактивности). Напр., плавности появления элементов.
  Создать для этого отдельную функцию gameAnim
 
  */
