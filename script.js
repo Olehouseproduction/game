@@ -91,14 +91,14 @@ function clickBug(type) {
   if (type === key && trashList.length > 0) {
     i++;
     upPoint.innerHTML = i;
-    gameAnim(true)
+    gameAnim(true);
     console.log("цвет поменялся на зеленый?");
     console.log("игрок кликнул на правильный бак");
   }
 
   if (type != key && trashList.length > 0) {
     k++;
-    gameAnim(false)
+    gameAnim(false);
     downPoint.innerHTML = k;
     console.log("цвет поменялся на розовый?");
     console.log("игрок кликнул на неправильный бак");
@@ -109,9 +109,15 @@ function clickBug(type) {
     gameOver();
     console.log("игра закончилась");
   }
+  // fly();
+  // console.log("где полет?");
   gameLoop();
   // console.log("игра продолжается");
 }
+
+// function fly() {
+//   elemImg.classList.add("flight");
+// }
 
 function gameLoop() {
   if (trashList.length >= 1) {
@@ -133,7 +139,11 @@ function gameLoop() {
 
 function gameOver() {
   headline.innerHTML =
-    "Отлично!<br/>Количество набранных очков: " + i + " из " + trashListRefresh.length + "!";
+    "Отлично!<br/>Количество набранных очков: " +
+    i +
+    " из " +
+    trashListRefresh.length +
+    "!";
 
   elemImg.classList.remove("active");
   start.classList.add("active");
@@ -145,20 +155,19 @@ function gameOver() {
   again.classList.add("active");
 }
 
-function gameAnim(boolean) { //Для анимаций
-  if(boolean){
+function gameAnim(boolean) {
+  if (boolean) {
     trashPicture.classList.add("backgroundYes");
     trashPicture.classList.remove("backgroundNo");
-  }else{
+  } else {
     trashPicture.classList.add("backgroundNo");
     trashPicture.classList.remove("backgroundYes");
   }
 }
 
-function changes() { //Функцию, которая отвечает за навешивание/снятие классов
-
+function changes() {
+  //Функцию, которая отвечает за навешивание/снятие классов
 }
-
 
 // function changes() {
 //   start.classList.add("active");
@@ -168,8 +177,6 @@ function changes() { //Функцию, которая отвечает за на
 //   again.classList.toggle("active");
 // }
 
-
-
 // startGame(); // обновляет цикл (бесконечная игра)
 // console.log(
 //   trashList,
@@ -177,7 +184,6 @@ function changes() { //Функцию, которая отвечает за на
 //   trashList.length,
 //   "должен быть 0 - и я молодец"
 // );
-
 
 // Создаем функцию клика по баку. Подаем в нее агрумент (type) - данные, которые нужны для работы функции
 
