@@ -13,13 +13,13 @@
     </style>
   </head>
   <body>
-    <div class="wrapper">
+    <div class="wrapper intro">
       <header onclick="openBox ()" class="caption">
         Выбери правильный бак для сортировки мусора
       </header>
       <section class="conception">
         <button onclick="startGame()" class="button_begin">Начать!</button>
-        <div class="cub-svg go-js">
+        <div class="cub-svg">
           <svg viewBox="-40 -40 250.79 250.79" class="timer-svg">
             <g id="Layer_2" data-name="Layer 2">
               <g id="Layer_1-2" data-name="Layer 1">
@@ -39,13 +39,8 @@
             </g>
           </svg>
         </div>
-        <div class="trash_picture go-js">
-          <!-- <img
-              class="core"
-              src="image/garbage/apple.png"
-              alt="apple_core"/> -->
-        </div>
-        <div class="counter go-js">
+        <div class="trash_picture"></div>
+        <div class="counter">
           <div class="win">
             <img src="image/ok.png" alt="check_mark" />
             <span class="win-js">0</span>
@@ -55,7 +50,7 @@
             <span class="lose-js">0</span>
           </div>
         </div>
-        <div class="again finish-js">
+        <div class="again">
           <img src="image/reload.png" alt="arrow_clockwise" />
           <button onclick="startGame()" class="button_again">Ещё раз</button>
         </div>
@@ -133,6 +128,12 @@
           </div>
         </div>
       </section>
+
+      <!-- <button onclick="example()">Кнопка</button>
+      <div class="impruve summer">
+        <p class="one">Текст1</p>
+        <p class="two">Текст2</p>
+      </div> -->
       <script src="script.js"></script>
     </div>
   </body>

@@ -31,6 +31,16 @@ let elemImg = document.createElement("img"); // Создаем переменн�
 console.log(elemImg, "созданый элемент");
 elemImg.classList.add("active");
 
+// function getStart() {
+//   let m = 0;
+//   let starting = document.querySelectorAll(".go-js");
+//   starting.forEach((item) => {
+//     console.log(item, "каждый элемент", m++);
+//     item.classList.add("active");
+//   });
+//   start.classList.remove("active");
+// }
+
 // создаем функцию startGame
 function startGame() {
   console.log("Игра началась");
@@ -71,14 +81,13 @@ function startGame() {
   counters.classList.add("active");
   // console.log(elemImg, "элемент до time");
 
-  setTimeout(() => {
-    // Используем метод setTimeout, позволяющий запускать функцию через заданный интервал времени
-    trash.classList.add("active");
-    trashBox.classList.add("active");
-    // console.log(elemImg, "элемент после time");
-  }, 1);
+  // setTimeout(() => {
+  //   // Используем метод setTimeout, позволяющий запускать функцию через заданный интервал времени
+  //   trash.classList.add("active");
+  //   trashBox.classList.add("active");
+  //   // console.log(elemImg, "элемент после time");
+  // }, 1);
 }
-console.log("Картинка появилась с задержкой"); //Не отображается в консоли
 
 let upPoint = document.querySelector(".win-js"); // Создаем переменную - число правильных ответов
 let downPoint = document.querySelector(".lose-js"); // Создаем переменную - число неправильных ответов
@@ -165,15 +174,6 @@ function gameAnim(boolean) {
   }
 }
 
-function getStart() {
-  let m = 0;
-  let starting = document.querySelectorAll(".go-js");
-  starting.forEach((item) => {
-    console.log(item, "каждый элемент", m++);
-    item.classList.remove("active");
-  });
-}
-
 // function gameEnd() {
 //   let k = 0;
 //   let ending = document.querySelectorAll(".finish-js");
@@ -185,6 +185,12 @@ function getStart() {
 function changes() {
   //Функция, которая отвечает за навешивание/снятие классов
 }
+
+// let first = document.querySelector(".impruve");
+// function example() {
+//   first.classList.remove("summer");
+//   first.classList.add("winter");
+// }
 
 // function changes() {
 //   start.classList.add("active");
