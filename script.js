@@ -73,12 +73,12 @@ function startGame() {
 
   setTimeout(() => {
     // Используем метод setTimeout, позволяющий запускать функцию через заданный интервал времени
-    trash.classList.add("active"); // переменной trash (где лежит картинка мусора) добавляем класс "active"
+    trash.classList.add("active");
     trashBox.classList.add("active");
     // console.log(elemImg, "элемент после time");
-  }, 100);
+  }, 1);
 }
-console.log("Картинка появилась с задержкой"); //Не отобржается в консоли
+console.log("Картинка появилась с задержкой"); //Не отображается в консоли
 
 let upPoint = document.querySelector(".win-js"); // Создаем переменную - число правильных ответов
 let downPoint = document.querySelector(".lose-js"); // Создаем переменную - число неправильных ответов
@@ -139,7 +139,7 @@ function gameLoop() {
 
 function gameOver() {
   headline.innerHTML =
-    "Отлично!<br/>Количество набранных очков: " +
+    "Отлично! Количество набранных очков: " +
     i +
     " из " +
     trashListRefresh.length +
@@ -165,8 +165,25 @@ function gameAnim(boolean) {
   }
 }
 
+function getStart() {
+  let m = 0;
+  let starting = document.querySelectorAll(".go-js");
+  starting.forEach((item) => {
+    console.log(item, "каждый элемент", m++);
+    item.classList.remove("active");
+  });
+}
+
+// function gameEnd() {
+//   let k = 0;
+//   let ending = document.querySelectorAll(".finish-js");
+//   ending.forEach((item) => {
+//     console.log(item, "каждый элемент", k++);
+//   });
+// }
+
 function changes() {
-  //Функцию, которая отвечает за навешивание/снятие классов
+  //Функция, которая отвечает за навешивание/снятие классов
 }
 
 // function changes() {
@@ -220,90 +237,6 @@ function changes() {
 //   }
 // }
 
-// let yellow = document.querySelector("#yellow"); // Создаем переменную, содержащую желтый бак
-
-// function openBox() {
-//   document.querySelector(".caption").classList.toggle("zumba");
-// }
-// yellow.classList.toggle("zumba");
-// setTimeout(() => {
-//   yellow.classList.toggle("zumba");
-// }, 400);
-
-// let yellow = document.querySelector("#yellow"); // Создаем переменную и, используя метод, (возвращающий первый элемент, соответсвующий селектору) кладем в нее элемент.
-// console.log(yellow, "наш бак"); // Смотрим, что находится в этом элементе.
-
-// let yellow = document.getElementById("yellow"); // Создаем переменную и, используя метод, (возвращающий первый элемент, соответсвующий селектору) кладем в нее элемент.
-// console.log(yellow, "наш бак"); // Смотрим, что находится в этом элементе.
-
-// function changeСolor() {
-//   document.querySelector(".dumpster-text--green").classList.toggle("down"); //По клику на "смешанные" меняется цвет шрифта
-// }
-// Вызов разными способами
-// // По id
-// let one = document.getElementById("blue");
-// console.log(one); //Получилось
-
-// // По классу
-
-// let two = document.getElementsByClassName("containers");
-// console.log(two); //Получилось
-
-// // По тегу
-
-// let three = document.getElementsByTagName("img");
-// console.log(three); //Получилось
-
-// // По селектору
-
-// let four = document.querySelectorAll(".wasteboxs img");
-// console.log(four, "не поняла");
-
-// let five = document.querySelector(".game_over");
-// console.log(five); //Получилось.
-
-// document.querySelector(".caption").classList.toggle("zumba");
-
-// document.querySelector(".dumpster-text--green").classList.toggle("down");
-// document.querySelector(".dumpster-text--green").classList.toggle("down");
-
-// document.getElementsByTagName;
-// document.getElementByClassName;
-
-/*var caption = document.querySelector(".caption");
-console.log(caption, "заголовок");
-
-let cistern = document.querySelectorAll(".dumpster");
-console.log(cistern, "все баки по одному");
-
-let all = document.querySelector("body");
-console.log(all, "выбрать все");
-
-let cisterns = document.querySelector(".containers");
-console.log(cisterns, "все баки разом");
-
-// all.innerHTML = "замена";
-
-// caption.innerHTML = "тут был заголовок";
-
-caption.innerHTML =
-  '<p class="dumpster-text dumpster-text--yellow">Вторсырье</p>'; 
-
-// yellow.innerHTML =
-//   '<p class="dumpster-text dumpster-text--green">Смешанные</p>'; // Обозначаем переменную, которую хотим изменить и присваиваем ей значение того объекта, на который хотим ее заменить.
-
-//   Свойство classList содержит позволяет добавлять и удалять классы элемента
-
-yellow.classList.add("active");
-yellow.classList.remove("dumpster");
-yellow.classList.toggle("a1a");*/
-
-// var yellow = document.querySelector("#yellow")
-// console.log(yellow, "наш баг")
-
-// let dumpster = document.querySelectorAll('.dumpster')
-// console.log(dumpster, "наши баки")
-
 // function openBox (){
 //     document.querySelector(".caption").classList.toggle("active")
 //     yellow.classList.toggle("active")
@@ -335,7 +268,7 @@ yellow.classList.toggle("a1a");*/
 // 4. заставить несколько элементов с 1 классом, что то делать
 // 5. кастомные измениня стиля для елемента
 
-// yellow.style = "display:none"    относиться к 5 пункту
+// yellow.style = "display:none"    относится к 5 пункту
 // document.querySelector(".button").style.transform = "translateX(" + i + "px)"
 
 // let trashList = [       массив хранит в себе любой перечень данных
@@ -345,7 +278,7 @@ yellow.classList.toggle("a1a");*/
 //   {name: 'Олеся'}
 // ]
 
-// let test = {       объект хранит в себе данные КЛЮЧ: ЗНАЧЕНИЕ
+// let test = { объект хранит в себе данные КЛЮЧ: ЗНАЧЕНИЕ
 //   name: 'Олеся',
 //   car: 'BMW',
 //   password: "80000"
@@ -354,10 +287,8 @@ yellow.classList.toggle("a1a");*/
 // console.log(test,"наш объект")
 
 /*Задания 
-
- 1* Подумать, как оптимизировать функцию gameOver с пом.функции changes
- 2** Оптимизировать код игры (Что можно сделать, чтобы сократить количество кода)
- 3 Добавить вайба (анимации, интерактивности). Напр., плавности появления элементов.
+ 1 Добавить вайба (анимации, интерактивности). Напр., плавности появления элементов.
  Создать для этого отдельную функцию gameAnim
-
+ 2* Подумать, как оптимизировать функцию gameOver с пом.функции changes
+ 3** Оптимизировать код игры (Что можно сделать, чтобы сократить количество кода)
  */
