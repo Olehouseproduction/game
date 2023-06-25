@@ -150,7 +150,6 @@ body {
   opacity: 0.3;
   transform: scale(1);
   transition: all 350ms ease-in;
-  /*animation-delay: 2s; */
 }
 
 .trash_picture.active {
@@ -164,21 +163,31 @@ body {
   z-index: 3;
   opacity: 0;
   transform: scale(1);
-  transition: all 350ms ease-in;
-  /* animation-delay: 2s; */
 }
 
 .trash_picture img.active {
   opacity: 1;
   transform: scale(1.2);
-  /* animation-delay: 2s;*/
-  /*transition: all 350ms ease-in; */
+  animation-name: appearance;
+  animation-duration: 350ms;
+  animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
 }
 
-.trash_picture img.flight {
+@keyframes appearance {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* .trash_picture img.flight {
   transform: translate(50px, 200px) skew(40deg, 0deg) scale(0.5) rotate(180deg);
   opacity: 1;
-}
+} */
 
 .lose img {
   max-width: 100%;
@@ -229,7 +238,6 @@ body {
   text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
   font-weight: 700;
   font-size: 2rem;
-  display: inline-block;
   width: 200px;
   height: 200px;
   padding: 12px 40px;
@@ -245,7 +253,8 @@ body {
   background-position: 100% 0;
   background-size: 200% 200%;
   box-shadow: 0 16px 32px 0 rgba(0, 40, 120, 0.35);
-  transition: 0.5s;
+  /* transition: 0.5s; */
+  transition: margin-left 4s 1s;
 }
 .button_begin:hover {
   box-shadow: 0 0 0 0 rgba(0, 40, 120, 0);
@@ -322,3 +331,11 @@ body {
 .trash_picture.backgroundNo {
   background: #e5017c;
 }
+
+/* .summer .one {
+  display: block;
+}
+
+.winter .one {
+  display: none;
+} */
