@@ -1,38 +1,43 @@
 body {
+  display: flex;
   font-family: "Roboto";
-  padding: 12vw;
-  max-width: 100vw;
-  max-height: 88vh;
-  box-sizing: border-box;
   background: url("/image/recycling-concept-top-view.jpg") 0 0/100% auto
     no-repeat;
+  box-sizing: border-box;
+  max-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.wrapper {
+  max-width: 50%;
+  margin-top: 14vh;
 }
 
 .containers {
-  padding-top: 6vh;
+  padding-top: 3vh;
   display: flex;
   justify-content: space-evenly;
 }
 
-.game-timer {
+.dumpster-text {
+  margin: 50px auto;
+}
+
+.conception {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   height: 28vh;
 }
 
-main {
-  max-width: 40%;
-  margin: 0 auto;
-}
-
 .caption {
   font-size: 2em;
-
   font-weight: bolder;
   text-align: center;
-  transition: color 500ms ease-in;
   text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+  margin-bottom: 5vh;
 }
 
 #yellow .dumpster-text {
@@ -82,8 +87,7 @@ main {
 }
 
 .win span,
-.lose span,
-.again span {
+.lose span {
   padding: 10px;
   color: white;
   font-weight: bold;
@@ -137,6 +141,7 @@ main {
   align-items: center;
   justify-content: center;
   position: absolute;
+
   width: 200px;
   height: 200px;
   border-radius: 100px;
@@ -175,20 +180,14 @@ main {
   opacity: 1;
 }
 
-.circles {
-  display: flex;
+.lose img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
-.green_circles,
-.red_circles {
-  width: 40px;
-  height: 40px;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  opacity: 0.1;
+.win img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .win {
@@ -197,11 +196,6 @@ main {
 
 .lose {
   background-color: #e5017c;
-}
-
-.game_over {
-  z-index: 1;
-  position: absolute;
 }
 
 .dumpster {
@@ -214,25 +208,22 @@ main {
   width: 76%;
   object-fit: contain;
   position: absolute;
-  left: 0.8vw;
-  top: 7vh;
+  left: 1.3vw;
+  top: 10.5vh;
   z-index: -1;
   transition: top 450ms ease-in;
 }
 
 .dumpster:hover .wasteboxs .dumpster-cap {
-  top: -0.5vh;
+  top: 2vh;
 }
 
-.start {
+.button_begin {
   display: flex;
   position: absolute;
   justify-content: center;
   align-items: center;
   z-index: 5;
-}
-
-.button_begin {
   color: white;
   cursor: pointer;
   text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
@@ -253,7 +244,6 @@ main {
   );
   background-position: 100% 0;
   background-size: 200% 200%;
-
   box-shadow: 0 16px 32px 0 rgba(0, 40, 120, 0.35);
   transition: 0.5s;
 }
@@ -267,9 +257,8 @@ main {
   display: none;
 }
 
-.dumpster-text--green.down {
-  bottom: 50px;
-  color: #e5017c;
+.dumpster-text {
+  box-shadow: 0 3px 0 #5d593a;
 }
 
 .again {
@@ -294,9 +283,20 @@ main {
   display: flex;
   z-index: 6;
   transition: all 350ms ease-in;
-  margin-top: 2vh;
-  height: 3vh;
-  width: 10vw;
+  margin-top: 17vh;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.85);
+  }
+  50% {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0.85);
+  }
 }
 
 .trash_picture.end {
@@ -309,13 +309,10 @@ main {
 
 .counter.end {
   opacity: 1;
-  display: flex;
   width: 12vw;
   transition: all 350ms ease-in;
   position: absolute;
-  top: 40vh;
   gap: 1vw;
-  justify-content: center;
 }
 
 .trash_picture.backgroundYes {
