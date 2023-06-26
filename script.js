@@ -6,7 +6,8 @@ let trash; // Создаем переменную trash и не присваив
 let cub = document.querySelector(".cub-svg");
 let again = document.querySelector(".again");
 let headline = document.querySelector(".caption");
-
+let yes = document.querySelector(".win");
+let no = document.querySelector(".lose");
 // создаем массив объектов из картинок
 
 trashListRefresh = [
@@ -31,15 +32,31 @@ let elemImg = document.createElement("img"); // Создаем переменн�
 console.log(elemImg, "созданый элемент");
 elemImg.classList.add("active");
 
-// function getStart() {
-//   let m = 0;
-//   let starting = document.querySelectorAll(".go-js");
-//   starting.forEach((item) => {
-//     console.log(item, "каждый элемент", m++);
-//     item.classList.add("active");
-//   });
-//   start.classList.remove("active");
-// }
+//Создание новой функции, отвечающей за проявление элементов в начале игры
+let starting = document.querySelectorAll(".go-js");
+function getStarted() {
+  let s = 0;
+  starting.forEach((item) => {
+    console.log(item, "каждый элемент", s++);
+    item.classList.add("active");
+  });
+  start.classList.add("active");
+
+}
+
+//Создание новой функции, отвечающей за элементы в конце игры
+let finishing = document.querySelectorAll(".finish-js");
+function finished() {
+  let f = 0;
+  finishing.forEach((item) => {
+    console.log(item, "каждый элемент", f++);
+    item.classList.add("active");
+  });
+  counters.classList.add("end");
+  trashPicture.classList.add("end");
+  start.classList.add("active");
+  headline.innerHTML = "Отлично! Количество набранных очков: " + i + " из " + trashListRefresh.length + "!";
+}
 
 // создаем функцию startGame
 function startGame() {
@@ -100,17 +117,13 @@ function clickBug(type) {
   if (type === key && trashList.length > 0) {
     i++;
     upPoint.innerHTML = i;
-    gameAnim(true);
-    console.log("цвет поменялся на зеленый?");
-    console.log("игрок кликнул на правильный бак");
+    colorPoints(true);
   }
 
   if (type != key && trashList.length > 0) {
     k++;
-    gameAnim(false);
     downPoint.innerHTML = k;
-    console.log("цвет поменялся на розовый?");
-    console.log("игрок кликнул на неправильный бак");
+    colorPoints(false);
   }
 
   console.log("+балл");
@@ -118,15 +131,24 @@ function clickBug(type) {
     gameOver();
     console.log("игра закончилась");
   }
-  // fly();
-  // console.log("где полет?");
+
   gameLoop();
   // console.log("игра продолжается");
 }
 
-// function fly() {
-//   elemImg.classList.add("flight");
-// }
+function colorPoints(boolean) {
+  let number = document.querySelector(".counter");
+  number.addEventListener("animationend",()=>{
+    console.log("Анимация закончилась");
+  })
+  if (boolean) {
+    yes.classList.add("active");
+    no.classList.remove("active");
+  } else {
+    no.classList.add("active");
+    yes.classList.remove("active");
+  }
+}
 
 function gameLoop() {
   if (trashList.length >= 1) {
@@ -137,22 +159,18 @@ function gameLoop() {
     trashPicture.appendChild(elemImg);
     trashList.splice(rand, 1);
 
-    // console.log(
-    //   trashList,
-    //   "текущий состав массива",
-    //   trashList.length,
-    //   "пока все хорошо"
-    // );
+    console.log(
+      trashList,
+      "текущий состав массива",
+      trashList.length,
+      "пока все хорошо"
+    );
   }
 }
 
 function gameOver() {
   headline.innerHTML =
-    "Отлично! Количество набранных очков: " +
-    i +
-    " из " +
-    trashListRefresh.length +
-    "!";
+    "Отлично! Количество набранных очков: " + i + " из " + trashListRefresh.length + "!";
 
   elemImg.classList.remove("active");
   start.classList.add("active");
@@ -164,15 +182,8 @@ function gameOver() {
   again.classList.add("active");
 }
 
-function gameAnim(boolean) {
-  if (boolean) {
-    trashPicture.classList.add("backgroundYes");
-    trashPicture.classList.remove("backgroundNo");
-  } else {
-    trashPicture.classList.add("backgroundNo");
-    trashPicture.classList.remove("backgroundYes");
-  }
-}
+
+
 
 // function gameEnd() {
 //   let k = 0;
@@ -185,12 +196,6 @@ function gameAnim(boolean) {
 function changes() {
   //Функция, которая отвечает за навешивание/снятие классов
 }
-
-// let first = document.querySelector(".impruve");
-// function example() {
-//   first.classList.remove("summer");
-//   first.classList.add("winter");
-// }
 
 // function changes() {
 //   start.classList.add("active");
