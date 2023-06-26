@@ -21,7 +21,7 @@
         <button onclick="startGame()" class="button_begin intro-js">
           Начать!
         </button>
-        <div class="cub-svg go-js">
+        <!-- <div class="cub-svg go-js">
           <svg viewBox="-40 -40 250.79 250.79" class="timer-svg">
             <g id="Layer_2" data-name="Layer 2">
               <g id="Layer_1-2" data-name="Layer 1">
@@ -40,9 +40,9 @@
               </g>
             </g>
           </svg>
-        </div>
+        </div> -->
         <div class="trash_picture go-js"></div>
-        <div class="counter go-js">
+        <div class="counter go-js end-game--js">
           <div class="win">
             <img src="image/ok.png" alt="check_mark" />
             <span class="win-js">0</span>
@@ -52,7 +52,7 @@
             <span class="lose-js">0</span>
           </div>
         </div>
-        <div class="again finish-js">
+        <div class="again end-game--js">
           <img src="image/reload.png" alt="arrow_clockwise" />
           <button onclick="startGame()" class="button_again">Ещё раз</button>
         </div>
@@ -60,7 +60,7 @@
       <section class="containers">
         <div
           id="yellow"
-          class="dumpster"
+          class="dumpster end-game--js"
           data-type="recyclables"
           onclick="clickBug('recyclables')">
           <p class="dumpster-text dumpster-text--yellow">Вторсырье</p>
@@ -78,7 +78,7 @@
         </div>
         <div
           id="green"
-          class="dumpster"
+          class="dumpster end-game--js"
           data-type="mixed"
           onclick="clickBug('mixed')">
           <p class="dumpster-text dumpster-text--green">Смешанные</p>
@@ -95,7 +95,7 @@
         </div>
         <div
           id="blue"
-          class="dumpster"
+          class="dumpster end-game--js"
           data-type="household"
           onclick="clickBug('household')">
           <p class="dumpster-text dumpster-text--blue">Бытовые</p>
@@ -113,7 +113,7 @@
         </div>
         <div
           id="red"
-          class="dumpster"
+          class="dumpster end-game--js"
           data-type="dangerous"
           onclick="clickBug('dangerous')">
           <p class="dumpster-text dumpster-text--red">Опасные</p>
