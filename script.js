@@ -1,6 +1,5 @@
-
 // оптимизация
-// конфиг переменных которые используются для работы приложения 
+// конфиг переменных которые используются для работы приложения
 trashListFresh = [
   { type: "household", url: "image/garbage/apple.png" },
   { type: "dangerous", url: "image/garbage/battery.png" },
@@ -27,43 +26,42 @@ let no = document.querySelector(".lose");
 let headline = document.querySelector(".caption");
 let trashPicture = document.querySelector(".trash_picture");
 let start = document.querySelector(".button_begin");
-let dumpster = document.querySelectorAll(".dumpster")
+let dumpster = document.querySelectorAll(".dumpster");
 let trashList;
-let trash; 
-
+let trash;
 
 function startGame() {
-  // обнуляем при каждом старте счетчики 
+  // обнуляем при каждом старте счетчики
   winPoint = 0;
   losePoint = 0;
   upPoint.innerHTML = winPoint;
   downPoint.innerHTML = losePoint;
-  // Выводим условие задачи для пользователя 
+  // Выводим условие задачи для пользователя
   headline.innerHTML = "Выбери правильный бак для сортировки мусора"; //Посмотреть как переделать Олеся
   trashList = trashListFresh.slice(0);
   // начинаем игровой цикл
   let rand = Math.floor(Math.random() * trashList.length);
   elemImg.setAttribute("src", trashList[rand].url);
   elemImg.setAttribute("data-type", trashList[rand].type);
-  trashPicture.appendChild(elemImg); 
+  trashPicture.appendChild(elemImg);
   trash = document.querySelector(".trash_picture img");
-  console.log ("ghbdtn")
-  trashList.splice(rand, 1); 
-  getStarted()
+  console.log("ghbdtn");
+  trashList.splice(rand, 1);
+  getStarted();
 }
 function getStarted() {
-  let endGameElem = document.querySelectorAll(".end-game--js")
-  endGameElem.forEach((item)=>{
-    item.classList.remove("end")
-  })
+  let endGameElem = document.querySelectorAll(".end-game--js");
+  endGameElem.forEach((item) => {
+    item.classList.remove("end");
+  });
   let starting = document.querySelectorAll(".go-js");
   starting.forEach((item) => {
     item.classList.toggle("active");
   });
-  start.classList.add("active")
-  dumpster.forEach((item)=>{
-    item.classList.remove("end")
-  })
+  start.classList.add("active");
+  dumpster.forEach((item) => {
+    item.classList.remove("end");
+  });
 }
 
 function clickBug(type) {
@@ -72,21 +70,22 @@ function clickBug(type) {
     winPoint++;
     upPoint.innerHTML = winPoint;
     colorPoints(true);
-  };
+  }
   if (type != key && trashList.length > 0) {
     losePoint++;
     downPoint.innerHTML = losePoint;
     colorPoints(false);
-  };
-  if (trashList.length === 0 ) {
+  }
+  if (trashList.length === 0) {
     gameOver();
-  };
+  }
   gameLoop();
 }
+
 function gameLoop() {
   if (trashList.length >= 1) {
     let rand = Math.floor(Math.random() * trashList.length);
-    elemImg.setAttribute("src", trashList[rand].url); 
+    elemImg.setAttribute("src", trashList[rand].url);
     elemImg.setAttribute("data-type", trashList[rand].type);
     trashPicture.appendChild(elemImg);
     trashList.splice(rand, 1);
@@ -94,6 +93,13 @@ function gameLoop() {
 }
 
 function colorPoints(boolean) {
+  let button = document.querySelector(".containers");
+
+  button.addEventListener("click", () => {
+    button.classList.toggle("active");
+    setTimeout(() => button.classList.add("active"), 0);
+  });
+
   if (boolean) {
     yes.classList.add("active");
     no.classList.remove("active");
@@ -104,28 +110,18 @@ function colorPoints(boolean) {
 }
 
 function gameOver() {
-  getStarted()
-  headline.innerHTML = "Отлично! Количество набранных очков: " + winPoint + " из " + trashListFresh.length + "!";
-  let endGameElem = document.querySelectorAll(".end-game--js")
-  endGameElem.forEach((item)=>{
-    item.classList.add("end")
-  })
+  getStarted();
+  headline.innerHTML =
+    "Отлично! Количество набранных очков: " +
+    winPoint +
+    " из " +
+    trashListFresh.length +
+    "!";
+  let endGameElem = document.querySelectorAll(".end-game--js");
+  endGameElem.forEach((item) => {
+    item.classList.add("end");
+  });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // let start = document.querySelector(".button_begin"); // Создаем переменную start, которая возвращает клик на которую запсукает игру(.button_begin)
 // let trashBox = document.querySelector(".trash_picture"); // Создаем переменную, которая возвращет box с мусором
@@ -309,9 +305,6 @@ function gameOver() {
 //   again.classList.add("active");
 // }
 
-
-
-
 // // function gameEnd() {
 // //   let k = 0;
 // //   let ending = document.querySelectorAll(".finish-js");
@@ -424,7 +417,7 @@ function gameOver() {
 // // console.log(trashList,"наш масив")
 // // console.log(test,"наш объект")
 
-// /*Задания 
+// /*Задания
 //  1 Добавить вайба (анимации, интерактивности). Напр., плавности появления элементов.
 //  Создать для этого отдельную функцию gameAnim
 //  2* Подумать, как оптимизировать функцию gameOver с пом.функции changes
